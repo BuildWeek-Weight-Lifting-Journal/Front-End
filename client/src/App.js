@@ -1,12 +1,3 @@
-import React from 'react';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-   
-    </div>
-  );
-}
-
-export default App;
+import React, { useState, useEffect } from 'react'
+import { Route } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute.js'
