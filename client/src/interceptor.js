@@ -10,7 +10,7 @@ axios.interceptors.request.use(config => {
    return config;
 })
 
-axios.interceptos.response.use(res => {
+axios.interceptors.response.use(res => {
    //strips away the token of any incoming response (if exists) 
    //and adds it to the storage 
    if(res.data.token) {
