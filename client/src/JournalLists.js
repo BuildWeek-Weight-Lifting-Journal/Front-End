@@ -2,8 +2,8 @@ import react, {useState, useEffect} from 'react'
 import axios from 'axios'
 
 
-export default function JournalList() {
-   const [exercise, setExercise] = useState()
+export default function JournalLists() {
+   const [exercise, setExercise] = useState([])
 
 
    useEffect(() => {
@@ -19,7 +19,7 @@ export default function JournalList() {
 
    return(
        <div>
-           
+           {exercise.map(placeholder => ())}
        </div>
    );
   }
