@@ -20,13 +20,35 @@ function JournalCard(props) {
    };
 
    return (
-      <div>
-         {region}
-         Date Created: {date[0]}
-         Exercises: {props.journalExercises.length}
-         <button onClick={e => handleClick(e)}>Delete</button>
-      </div>
+      <Container>
+      <Exercise>
+        <RegionStyled>{region}</RegionStyled>
+        <StyledData>Date Created: {date[0]}</StyledData>
+        <StyledData>Exercises: {props.journalExercises.length} </StyledData>
+        <ButtonStyle onClick={e => handleClick(e)}>Delete</ButtonStyle>
+      </Exercise>
+    </Container>
    )
 }
 
 export default JournalCard;
+
+/**************Styles************/
+const RegionStyled = styled.div`
+  
+ 
+`;
+const StyledData = styled.div`
+  
+`;
+const Exercise = styled.div`
+  
+`;
+
+const Container = styled.div`
+  
+`;
+
+const ButtonStyle = styled.button`
+ 
+`;
