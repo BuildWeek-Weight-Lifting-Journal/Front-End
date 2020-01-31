@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import styled from "styled-components";
 
 const CreateJournal = props => {
@@ -21,7 +21,7 @@ const CreateJournal = props => {
       region: workout.typeOfWorkout
     };
 
-    Axios.post("restricted/journals/", workoutValues)
+    axios.post("restricted/journals/", workoutValues)
       .then(function(res) {
         props.history.push(`/dashboard`);
         console.log("Res:", res);
