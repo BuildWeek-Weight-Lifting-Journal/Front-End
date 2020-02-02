@@ -5,7 +5,8 @@ If I have time and help from Darren, I will do the google account sign in/regist
 Follow the link if you need more information on the code I used.
 https://material-ui.com/getting-started/templates/
 
-*/import React from 'react';
+*/
+import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,6 +20,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import BackgroundSet from './dumbbell-weightlifting-image.jpg';
 
 function Copyright() {
   return (
@@ -38,7 +40,9 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    //backgroundImage: 'url(https://source.unsplash.com/random)',
+    //backgroundImage: 'url("../dumbbell-weightlifting-image.jpg")',
+    backgroundImage: `url(${BackgroundSet})`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
