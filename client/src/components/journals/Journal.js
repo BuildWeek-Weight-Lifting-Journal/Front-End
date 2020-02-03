@@ -1,92 +1,146 @@
-import React, {useState, useEffect} from "react";
-import Button from "@material-ui/core/Button";
-import { TextField, ServerStyleSheets } from "@material-ui/core";
+import React, { useState, useEffect, useContext } from "react";
+import Axios from "axios";
+import CreateExercise from "./CreateExercise.js";
+import { UserContext } from "../../contexts/UserContext.js";
 import styled from "styled-components";
-import * as yup from 'yup';
-import  {useform} from 'react-hook-form';
 
-const StyledButton = styled(Button)`
-  margin-bottom: 10px;
-  padding: 2%;
-`;
-const StyledH1 = styled.h1`
-  font-size: 24px;
-  font-weight: 800;
-  color: navy;
-  border-radius: 2%;
-  border-bottom: 3px solid navy;
-  padding: 3%;
-`;
-const Journal = () => {
-  const {val, setValue} = useState();
-  const [bodyParts, setBodyPart] = useState(" ");
-  const [sets, setNumSets] = useState(0);
-  const [reps, setNumReps] = useState(0);
-  const [weight, setWeightAmt] = useState(0);
-  const [exercise, setExercise] = useState(" ");
+function Journal(props) {
+  const [button, setButton] = useState(false);
+  const { user } = useContext(UserContext);
+  const [exercises, setExercises] = useState();
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    setNumSets(" ")
-    setBodyPart(" ")
-    setNumReps(" ")
-    setWeightAmt(" ")
-    setExercise( " ")
+  console.log(user);
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    Axios.delete(`/restricted/exercises/${id}`).then(res => {
+      const newExercises = exercises.filter(exercise => {
+        return exercise.id !== id;
+      });
+      setExercises(newExercises);
+    });
   };
+
+  useEffect(() => {
+    const id = props.match.params.id;
+    Axios.get(`restricted/exercises/journal/${id}`)
+      .then(res => {
+        console.log(res);
+        setExercises(res.data.exercises);
+      })
+      .catch(err => console.log(err));
+  }, [props.match.params.id, button]);
+
+  console.log(props);
 
   return (
     <div>
-      <header>
-        <StyledH1>FitTrip</StyledH1>
-      </header>
-      <main>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Body Part Exercised"
-            id="bodyPart"
-            variant="outlined"
-            onChange={event => setBodyPart(event.target.value)}
-            error
-          />
-          <br />
-          <br />
-          <TextField 
-          label="Number of Sets"
-          id="numSets" 
-          variant="outlined"
-          onChange={event=> setNumSets(event.target.value)} />
-          <br />
-          <br />
-          <TextField 
-          label="Number of Reps"
-           id="numReps"
-          variant="outlined"
-          onChange={event => setNumReps(event.target.value)} />
-          <br />
-          <br />
-          <TextField
-            label="Amount of Weight Lifted"
-            id="amountWeight"
-            variant="outlined"
-           onChange={event => {setWeightAmt(event.target.value)}}
-          />
-          <br />
-          <br />
-          <TextField
-            label="Exercise Type"
-            id="exerciseType"
-            variant="outlined"
-            onChange={event => {setExercise(event.target.value)}}
-          />
-          <br />
-          <br />
-          <br />
-          <StyledButton variant="contained">Add Workout</StyledButton>
-          <br /> <br />
-        </form>
-      </main>
-      <footer> </footer >
+      {exercises &&
+        exercises.map((item, index) => {
+          return (
+            <div key={index}>
+              <Container>
+                <ExerciseStyled>{item.name}</ExerciseStyled>
+
+                <ExerciseContainer>
+                  <StyledRegion>
+                    <div>
+                      Sets
+                      <div>{item.sets}</div>
+                    </div>
+                  </StyledRegion>
+
+                  <StyledRegion>
+                    Reps
+                    <div>{item.reps}</div>
+                  </StyledRegion>
+
+                  <StyledRegion>
+                    Weight(lbs)
+                    <div>{item.weight}</div>
+                  </StyledRegion>
+
+                  <StyledRegion>
+                    <ButtonStyleSmall onClick={e => handleClick(e, item.id)}>
+                      Delete
+                    </ButtonStyleSmall>
+                  </StyledRegion>
+                </ExerciseContainer>
+              </Container>
+            </div>
+          );
+        })}
+      {button ? (
+        <CreateExercise
+          journal={props.match.params.id}
+          user={user}
+          setExercises={setExercises}
+          exercises={exercises}
+          setButton={setButton}
+        />
+      ) : (
+        <ButtonStyle onClick={() => setButton(true)}>
+          Create New Exercise
+        </ButtonStyle>
+      )}
     </div>
   );
-};
+}
 export default Journal;
+
+/****************Styles************/
+const ButtonStyle = styled.button`
+  height: auto;
+  padding: 10px 10px;
+  background: #efbf3b;
+  margin-bottom: 5%;
+  margin-left: 0%;
+  margin-top: 2%;
+  width: 50%;
+  border-radius: 10px;
+  color: #252627;
+  font-size: 1rem;
+  transition: 1s;
+  font-family: "Alfa Slab One", cursive;
+`;
+
+const ButtonStyleSmall = styled.button`
+  height: auto;
+  background: #991c27;
+  border-radius: 10px;
+  color: #f3f3f3;
+  font-size: 1rem;
+  transition: 1s;
+  font-family: "Alfa Slab One", cursive;
+`;
+
+const ExerciseContainer = styled.span`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0;
+  margin-bottom: 5%;
+  margin-left: 5%;
+`;
+
+const StyledRegion = styled.div`
+  
+  color: #252627
+  font-size: 1rem;
+  font-family: "Alfa Slab One", cursive;
+  text-shadow: #ffffff 1px 1px 0;
+  margin:10%;
+  
+`;
+
+const ExerciseStyled = styled.div`
+  color: #252627
+  font-size: 3rem;
+  font-family: "Alfa Slab One", cursive;
+  text-shadow: #ffffff 1px 1px 0;
+  margin-left:2%;
+`;
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
