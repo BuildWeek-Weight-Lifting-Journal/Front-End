@@ -20,6 +20,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+//the imports below this line are mine
 import BackgroundSet from './dumbbell-weightlifting-image.jpg';
 
 function Copyright() {
@@ -41,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     //backgroundImage: 'url(https://source.unsplash.com/random)',
-    //backgroundImage: 'url("../dumbbell-weightlifting-image.jpg")',
+    //the line above was the original code to switch the left hand image
     backgroundImage: `url(${BackgroundSet})`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
@@ -57,7 +58,9 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main,//this is the red lock
+    //backgroundColor: theme.palette.primary.main,
+    //primary color in theme is the purple blue color
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -68,16 +71,19 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function SignInSide() {
   const classes = useStyles();
 
   return (
     <Grid container component="main" className={classes.root}>
-      <CssBaseline />
+      <CssBaseline />{/*this is the same as normalize.css library*/}
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+        {/**Paper is like a background and drop shadow combo for cards and other components */}
           <Avatar className={classes.avatar}>
+              {/**Avatar is a small circle with an image, letter, or a vector with color bk inside- this is where the red lock comes from. Keep in mind the color is controlled by primary or secondary color. Avatar can have a child component as the Icon just like Avatar -> LockOutlinedIcon here. */}
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -93,6 +99,7 @@ export default function SignInSide() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              //notice, no placeholder="Email Address"
               autoFocus
             />
             <TextField
@@ -105,6 +112,7 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              //notice, no placeholder="Password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -114,7 +122,8 @@ export default function SignInSide() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              //color="primary"
+              color="secondary"
               className={classes.submit}
             >
               Sign In
