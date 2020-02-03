@@ -6,8 +6,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Journal from "./components/journals/Journal";
 import { UserContext } from "./contexts/UserContext";
-import Dashboard from "./components/journals/Dashboard";
-// import CreateJournal from "./components/journals/CreateJournal.js";
+import Dashboard from "./components/Dashboard";
+import CreateJournal from "./components/CreateJournal"
 import Navigation from "./components/Navigation";
 import "./App.css";
 
@@ -38,12 +38,12 @@ function App(props) {
 
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/journal/:id" component={Journal} />
-        {/* <PrivateRoute exact path="/journal" component={CreateJournal} /> */}
+        <PrivateRoute exact path="/journal" component={CreateJournal} />
 
-        {/* <Route
+        <Route
           path="/newjournal/:id"
           render={props => <CreateJournal {...props} user={user} />}
-        /> */}
+        />
       </div>
     </UserContext.Provider>
   );
