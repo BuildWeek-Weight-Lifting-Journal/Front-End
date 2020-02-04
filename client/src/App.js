@@ -16,9 +16,12 @@ function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
+    console.log(user)
     if (user.id) {
+      
       setLoggedIn(true);
     }
+    
   }, [user]);
 
   return (
@@ -31,7 +34,7 @@ function App(props) {
           render={props => <Login {...props} setUser={setUser} />}
         />
         <Route
-          path="/"
+          path="/register"
           exact
           render={props => <Register {...props} setUser={setUser} />}
         />

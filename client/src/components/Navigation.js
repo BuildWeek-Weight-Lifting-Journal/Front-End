@@ -31,8 +31,8 @@ const Navigation = ({ user, setLoggedIn }) => {
           Logged in as:
           <br />
           <Name>
-            <span>{user.firstName}</span>
-            <span>{user.lastName}</span>
+            <span>{user.first_name}</span>
+            <span>{user.last_name}</span>
           </Name>
         </p>
         <LogoutButton onClick={() => handleClick()}>Log Out</LogoutButton>
