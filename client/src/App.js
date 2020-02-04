@@ -6,8 +6,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Journal from "./components/journals/Journal";
 import { UserContext } from "./contexts/UserContext";
-import Dashboard from "./components/journals/Dashboard";
-import CreateJournal from "./components/journals/CreateJournal.js";
+import Dashboard from "./components/Dashboard";
+import CreateJournal from "./components/CreateJournal"
 import Navigation from "./components/Navigation";
 import "./App.css";
 
