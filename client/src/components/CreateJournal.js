@@ -6,7 +6,7 @@ const CreateJournal = props => {
   console.log(props);
   const [workout, setWorkout] = useState({
     date: "",
-    typeOfWorkout: ""
+    name: ""
   });
 
   const inputHandler = e => {
@@ -18,10 +18,10 @@ const CreateJournal = props => {
     const workoutValues = {
       userId: props.match.params.id,
       date: workout.date,
-      region: workout.typeOfWorkout
+      name: workout.name
     };
 
-    axios.post("restricted/journals/", workoutValues)
+    axios.post("/api/journals/", workoutValues)
       .then(function(res) {
         props.history.push(`/dashboard`);
         console.log("Res:", res);
@@ -50,14 +50,11 @@ const CreateJournal = props => {
             <Date>Select a Region</Date>
             <select
               className="typeOfWorkout"
-              name="typeOfWorkout"
-              value={workout.typeOfWorkout}
+              name="name"
+              value={workout.name}
               onChange={inputHandler}
             >
-              <option />
-              <option>Upper Body</option>
-              <option>Lower Body</option>
-              <option>Core</option>
+              <input />
             </select>
           </label>
           <ButtonStyle onSubmit={() => handleSubmit()}>Submit</ButtonStyle>
