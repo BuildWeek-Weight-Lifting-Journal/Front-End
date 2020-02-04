@@ -16,6 +16,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+//the imports below this line are mine
+import BackgroundSetReg from './2photo.jpg';
 
 function Copyright() {
   return (
@@ -36,6 +38,8 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     backgroundImage: 'url(https://source.unsplash.com/random)',
+    //the line above was the original code to switch the left hand image
+    backgroundImage: `url(${BackgroundSetReg})`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
@@ -74,9 +78,31 @@ export default function SignInSide() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Register
           </Typography>
           <form className={classes.form} noValidate>
+          <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              autoComplete="fname"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lname"
+              autoFocus
+            />
             <TextField
               variant="outlined"
               margin="normal"
@@ -107,20 +133,20 @@ export default function SignInSide() {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.submit}
             >
-              Sign In
+              Register
             </Button>
             <Grid container>
-              <Grid item xs>
+              {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-                </Link>
-              </Grid>
+                </Link> 
+              </Grid> */}
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Already have an account? Login!"}
                 </Link>
               </Grid>
             </Grid>
