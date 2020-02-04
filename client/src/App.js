@@ -16,9 +16,12 @@ function App(props) {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
+    console.log(user)
     if (user.id) {
+      
       setLoggedIn(true);
     }
+    
   }, [user]);
 
   return (
@@ -26,7 +29,7 @@ function App(props) {
       <div className="App">
         {loggedIn && <Navigation user={user} setLoggedIn={setLoggedIn} />}
         <Route
-          path="/"
+          path="/login"
           exact
           render={props => <Login {...props} setUser={setUser} />}
         />

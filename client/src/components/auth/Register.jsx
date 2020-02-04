@@ -1,135 +1,185 @@
-/* 
-This is an exact repeat of the LoginForm.jsx
-I need to change some fields and set up the post funcitons
-*/
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import { Form, Field, withFormik } from "formik";
+import { Link } from "react-router-dom";
+import Axios from "axios";
+import * as Yup from "yup";
+import styled from "styled-components";
 
-function Copyright() {
+const RegisterForm = ({ errors, touched }) => {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
+    <Container>
+      <Header>
+        <LogoStyle>
+          <span>App</span>
+          <span>Name</span>
+        </LogoStyle>
+      </Header>
+      <StyledForm>
+        <fieldset>
+          <UserNamePasswordLabel>Username</UserNamePasswordLabel>
+          {touched.username && errors.username && (
+            <Error className="error">{errors.username}</Error>
+          )}
+          <StyledField
+            type="text"
+            name="username"
+            placeholder="TheGovernator47"
+          />
+        </fieldset>
+        <fieldset>
+          <UserNamePasswordLabel>First Name</UserNamePasswordLabel>
+          {touched.first_name && errors.first_name && (
+            <Error className="error">{errors.first_name}</Error>
+          )}
+          <StyledField type="text" name="firstName" placeholder="Arnold" />
+        </fieldset>
+        <fieldset>
+          <UserNamePasswordLabel>Last Name</UserNamePasswordLabel>
+          {touched.last_name && errors.last_name && (
+            <Error className="error">{errors.last_name}</Error>
+          )}
+          <StyledField
+            type="text"
+            name="lastName"
+            placeholder="Schwarzenegger"
+          />
+        </fieldset>
+        <fieldset>
+          <UserNamePasswordLabel>Email Address</UserNamePasswordLabel>
+          {touched.email && errors.email && (
+            <Error className="error">{errors.email}</Error>
+          )}
+          <StyledField
+            type="text"
+            name="email"
+            placeholder="arnold@strong.com"
+          />
+        </fieldset>
+        <fieldset>
+          <UserNamePasswordLabel>Password</UserNamePasswordLabel>
+          {touched.password && errors.password && (
+            <Error className="error">{errors.password}</Error>
+          )}
+          <StyledField type="password" name="password" placeholder="******" />
+        </fieldset>
+        <ButtonStyle type="submit">Submit</ButtonStyle>
+        <p>
+          <Member>Already a member?</Member>
+          <span> </span>
+          <Link to="/login">Login</Link>.
+        </p>
+      </StyledForm>
+    </Container>
   );
-}
+};
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: '100vh',
+const Register = withFormik({
+  mapPropsToValues({ username, password, first_name, last_name, email }) {
+    return {
+      username: username || "",
+      password: password || "",
+      firstName: first_name || "",
+      lastName: last_name || "",
+      email: email || ""
+    };
   },
-  image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
-export default function SignInSide() {
-  const classes = useStyles();
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required("Username is required."),
+    password: Yup.string().required("Password is required.")
+  }),
 
-  return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
-  );
-}
+  handleSubmit(values, { props }) {
+    Axios.post("/api/auth/register", values).then(res => {
+      if (res.data.token) {
+        props.history.push("/dashboard");
+        props.setUser(res.data.user);
+      }
+      console.log("axios.post:", res);
+    });
+  }
+})(RegisterForm);
+
+export default Register;
+
+/****************Styles**************/
+const StyledForm = styled(Form)`
+  justify-content: center;
+  padding-left: 20px;
+  margin-top: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100%;
+  padding-bottom: 50px;
+  color: #ebebeb;
+`;
+
+const StyledField = styled(Field)`
+  width: 80%;
+  background: white;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #252627;
+  border-radius: 5px;
+  outline: none;
+  color: #252627;
+  font-size: 1rem;
+  margin-bottom: 20px;
+`;
+
+const UserNamePasswordLabel = styled.label`
+  color: #252627;
+  font-size: 2rem;
+  font-family: "Alfa Slab One", cursive;
+  padding: 10px 0;
+  text-shadow: #ffffff 1px 1px 0;
+`;
+
+const Container = styled.div`
+  background: #ebebeb;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0px;
+`;
+
+const ButtonStyle = styled.button`
+  height: auto;
+  padding: 20px 80px;
+  background: #efbf3b;
+  margin-top: 20px;
+  margin-left: 0%;
+  width: 100%;
+  border-radius: 10px;
+  color: #252627;
+  font-size: 1.9rem;
+  transition: 1s;
+  font-family: "Alfa Slab One", cursive;
+`;
+
+const LogoStyle = styled.div`
+  color: #252627;
+  font-size: 2.5rem;
+  text-shadow: #ebebeb 1px 1px 0;
+  font-family: "Alfa Slab One", cursive;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  span:first-child {
+    color: #991c27;
+  }
+`;
+
+const Header = styled.div`
+  background-color: rgba(37, 38, 39, 0.3);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Member = styled.span`
+  color: black;
+`;
+const Error = styled.p`
+  color: black;
+`;

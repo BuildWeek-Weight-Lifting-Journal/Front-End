@@ -35,8 +35,8 @@ function Dashboard(props) {
   return (
     <Container>
       <Logo>
-        <span>{user.firstName}</span>
-        <span>{user.lastName}</span>
+        <span>{user.first_name}</span>
+        <span>{user.last_name}</span>
       </Logo>
 
       <JournalsLogged>
