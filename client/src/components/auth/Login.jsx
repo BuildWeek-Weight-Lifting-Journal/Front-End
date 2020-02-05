@@ -130,7 +130,7 @@ const Login = withFormik({
   }),
 
   handleSubmit(values, { props }) {
-    Axios.post("/api/auth/login", values).then(res => {
+    Axios.post("auth/login", values).then(res => {
       console.log(values)
       if (res.data.token) {
         props.history.push("/dashboard");

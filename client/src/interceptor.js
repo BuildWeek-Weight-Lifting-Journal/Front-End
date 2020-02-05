@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //URL shared by each endpoint 
-axios.defaults.baseURL = 'https://weight-journal.herokuapp.com/'; 
+axios.defaults.baseURL = "https://get-hercules.herokuapp.com/api/"; 
 
 axios.interceptors.request.use(config => {
    //ADDS A TOKEN TO EVERY OUTGOING REQUEST 

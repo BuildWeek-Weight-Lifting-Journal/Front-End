@@ -90,7 +90,7 @@ const Register = withFormik({
   }),
 
   handleSubmit(values, { props }) {
-    Axios.post("/api/auth/register", values).then(res => {
+    Axios.post("auth/register", values).then(res => {
       if (res.data.token) {
         props.history.push("/dashboard");
         props.setUser(res.data.user);

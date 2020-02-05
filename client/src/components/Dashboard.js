@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Logo } from "../styled/DashStyles";
 
 function Dashboard(props) {
+  
   const [journals, setJournals] = useState([]);
   const { user } = useContext(UserContext);
 
@@ -35,8 +36,8 @@ function Dashboard(props) {
   return (
     <Container>
       <Logo>
-        <span>{user.first_name}</span>
-        <span>{user.last_name}</span>
+        <span>{user.firstName}</span>
+        <span>{user.lastName}</span>
       </Logo>
 
       <JournalsLogged>

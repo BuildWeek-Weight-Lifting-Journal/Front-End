@@ -21,8 +21,8 @@ const Navigation = ({ user, setLoggedIn }) => {
     <Header>
       <HeaderLeft>
         <Logo>
-          <span>Pro</span>
-          <span>Lift</span>
+          <span>App</span>
+          <span>Name</span>
         </Logo>
         <DashboardLink to="/dashboard">Dashboard</DashboardLink>
       </HeaderLeft>
@@ -31,8 +31,8 @@ const Navigation = ({ user, setLoggedIn }) => {
           Logged in as:
           <br />
           <Name>
-            <span>{user.first_name}</span>
-            <span>{user.last_name}</span>
+            <span>{user.firstName}</span>
+            <span>{user.lastName}</span>
           </Name>
         </p>
         <LogoutButton onClick={() => handleClick()}>Log Out</LogoutButton>

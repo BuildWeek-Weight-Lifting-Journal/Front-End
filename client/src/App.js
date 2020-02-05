@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 import "./App.css";
 
 function App(props) {
+  console.log("App props:", props)
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
 

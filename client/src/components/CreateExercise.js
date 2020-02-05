@@ -46,11 +46,10 @@ function CreateExercise({ errors, touched }) {
 
 /*=============== FORMIK WRAP ===============*/
 const FormikCreateExercise = withFormik({
-  mapPropsToValues({ name, sets, reps, weight, journal, user }) {
+  mapPropsToValues({ sets, reps, weight, journal, user }) {
     return {
       journalId: journal,
-      userId: user.id,
-      name: name || "",
+      exerciseId: user.id,
       sets: sets || 0,
       reps: reps || 0,
       weight: weight || 0
