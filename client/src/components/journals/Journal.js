@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Axios from "axios";
-import CreateExercise from "../CreateExercise";
+import CreateExercise from "../CreateExercise"
 import { UserContext } from "../../contexts/UserContext.js";
 import styled from "styled-components";
 

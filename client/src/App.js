@@ -6,23 +6,19 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Journal from "./components/journals/Journal";
 import { UserContext } from "./contexts/UserContext";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard"
 import CreateJournal from "./components/CreateJournal"
 import Navigation from "./components/Navigation";
 import "./App.css";
 
 function App(props) {
-  console.log("App props:", props)
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    console.log(user)
     if (user.id) {
-      
       setLoggedIn(true);
     }
-    
   }, [user]);
 
   return (
@@ -35,7 +31,7 @@ function App(props) {
           render={props => <Login {...props} setUser={setUser} />}
         />
         <Route
-          path="/register"
+          path="/"
           exact
           render={props => <Register {...props} setUser={setUser} />}
         />

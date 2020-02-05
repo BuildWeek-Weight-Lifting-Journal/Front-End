@@ -10,8 +10,8 @@ const RegisterForm = ({ errors, touched }) => {
     <Container>
       <Header>
         <LogoStyle>
-          <span>App</span>
-          <span>Name</span>
+          <span>Pro</span>
+          <span>Lift</span>
         </LogoStyle>
       </Header>
       <StyledForm>
@@ -28,15 +28,15 @@ const RegisterForm = ({ errors, touched }) => {
         </fieldset>
         <fieldset>
           <UserNamePasswordLabel>First Name</UserNamePasswordLabel>
-          {touched.first_name && errors.first_name && (
-            <Error className="error">{errors.first_name}</Error>
+          {touched.firstName && errors.firstName && (
+            <Error className="error">{errors.firstName}</Error>
           )}
           <StyledField type="text" name="firstName" placeholder="Arnold" />
         </fieldset>
         <fieldset>
           <UserNamePasswordLabel>Last Name</UserNamePasswordLabel>
-          {touched.last_name && errors.last_name && (
-            <Error className="error">{errors.last_name}</Error>
+          {touched.lastName && errors.lastName && (
+            <Error className="error">{errors.lastName}</Error>
           )}
           <StyledField
             type="text"
@@ -74,12 +74,12 @@ const RegisterForm = ({ errors, touched }) => {
 };
 
 const Register = withFormik({
-  mapPropsToValues({ username, password, first_name, last_name, email }) {
+  mapPropsToValues({ username, password, firstName, lastName, email }) {
     return {
       username: username || "",
       password: password || "",
-      firstName: first_name || "",
-      lastName: last_name || "",
+      firstName: firstName || "",
+      lastName: lastName || "",
       email: email || ""
     };
   },
@@ -95,7 +95,7 @@ const Register = withFormik({
         props.history.push("/dashboard");
         props.setUser(res.data.user);
       }
-      console.log("axios.post:", res);
+      console.log(res);
     });
   }
 })(RegisterForm);
