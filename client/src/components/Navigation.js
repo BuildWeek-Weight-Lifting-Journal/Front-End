@@ -21,8 +21,8 @@ const Navigation = ({ user, setLoggedIn }) => {
     <Header>
       <HeaderLeft>
         <Logo>
-          <span>App</span>
-          <span>Name</span>
+          <span>Watch</span>
+          <span>Yourself</span>
         </Logo>
         <DashboardLink to="/dashboard">Dashboard</DashboardLink>
       </HeaderLeft>
