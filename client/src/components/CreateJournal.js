@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import styled from "styled-components";
 
 const CreateJournal = props => {
@@ -21,7 +21,7 @@ const CreateJournal = props => {
       region: workout.typeOfWorkout
     };
 
-    axios.post("restricted/journals/", workoutValues)
+    Axios.post("restricted/journals/", workoutValues)
       .then(function(res) {
         props.history.push(`/dashboard`);
         console.log("Res:", res);
@@ -70,15 +70,42 @@ export default CreateJournal;
 
 /*************Styles************/
 const Title = styled.h2`
-  
+  color: #252627;
+  font-size: 2.5rem;
+  text-shadow: #ffffff 1px 1px 0;
+  font-family: "Alfa Slab One", cursive;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  span:first-child {
+    color: #991c27;
+  }
 `;
 const Date = styled.div`
-  
+  text-shadow: #ffffff 1px 1px 0;
+  font-family: "Alfa Slab One", cursive;
+  font-size: 1.9rem;
+  color: #991c27;
+  text-align: center;
 `;
 const Container = styled.div`
-  
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 `;
 
 const ButtonStyle = styled.button`
-
+  height: auto;
+  padding: 20px 80px;
+  background: #efbf3b;
+  margin-top: 1%;
+  margin-left: 0%;
+  width: 100%;
+  border-radius: 10px;
+  color: #252627;
+  font-size: 1.9rem;
+  transition: 1s;
+  font-family: "Alfa Slab One", cursive;
 `;

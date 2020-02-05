@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Logo } from "../styled/DashStyles";
 
 function Dashboard(props) {
+  
   const [journals, setJournals] = useState([]);
   const { user } = useContext(UserContext);
 

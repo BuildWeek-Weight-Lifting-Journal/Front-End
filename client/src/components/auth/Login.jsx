@@ -13,7 +13,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -21,6 +21,15 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import BackgroundSet from './dumbbell-weightlifting-image.jpg';
+
+import * as Yup from 'yup';
+
+import Axios from 'axios';
+import { Form, Field, withFormik } from 'formik';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+
 
 function Copyright() {
   return (
@@ -68,75 +77,149 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignInSide() {
-  const classes = useStyles();
+const LoginForm = ({ errors, touched, setUser }) => {
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
-      </Grid>
-    </Grid>
+    <Container>
+      <Header>
+        <LogoStyle>
+          <span>App</span>
+          <span>Name</span>
+        </LogoStyle>
+      </Header>
+      <StyledForm>
+        <fieldset>
+          <UserNamePasswordLabel>Username</UserNamePasswordLabel>
+          {touched.username && errors.username && (
+            <Error className="error">{errors.username}</Error>
+          )}
+          <StyledField
+            type="text"
+            name="username"
+            placeholder="TheGovernator47"
+          />
+        </fieldset>
+        <fieldset>
+          <UserNamePasswordLabel>Password</UserNamePasswordLabel>
+          {touched.password && errors.password && (
+            <Error className="error">{errors.password}</Error>
+          )}
+          <StyledField type="password" name="password" placeholder="******" />
+        </fieldset>
+        <ButtonStyle type="submit">Submit</ButtonStyle>
+        <p>
+          <Member>Not a member?</Member> <span> </span>
+          <Link to="/register">Register</Link>
+        </p>
+      </StyledForm>
+    </Container>
   );
-}
+};
+
+const Login = withFormik({
+  mapPropsToValues({ username, password }) {
+    return {
+      username: username || "",
+      password: password || ""
+    };
+  },
+
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required("Username is required."),
+    password: Yup.string().required("Password is required.")
+  }),
+
+  handleSubmit(values, { props }) {
+    Axios.post("auth/login", values).then(res => {
+      console.log(values)
+      if (res.data.token) {
+        props.history.push("/dashboard");
+        props.setUser(res.data.user);
+        localStorage.setItem("id", res.data.username);
+        
+      }
+    });
+  }
+})(LoginForm);
+
+export default Login;
+
+/*************Styles************************/
+const StyledForm = styled(Form)`
+  justify-content: center;
+  padding-left: 20px;
+  margin-top: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 100%;
+  padding-bottom: 50px;
+  color: #ebebeb;
+`;
+
+const StyledField = styled(Field)`
+  width: 80%;
+  background: white;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #252627;
+  border-radius: 5px;
+  outline: none;
+  color: #252627;
+  font-size: 1rem;
+  margin-bottom: 20px;
+`;
+
+const UserNamePasswordLabel = styled.label`
+  color: #252627;
+  font-size: 2rem;
+  font-family: "Alfa Slab One", cursive;
+  text-shadow: #ffffff 1px 1px 0;
+  padding: 10px 0;
+`;
+
+const Container = styled.div`
+position: 'absolute', left: '50%', top: '50%',
+transform: 'translate(-50%, -50%)'
+`;
+
+const ButtonStyle = styled.button`
+  height: auto;
+  padding: 20px 80px;
+  background: #efbf3b;
+  margin-top: 20px;
+  margin-left: 0%;
+  width: 100%;
+  border-radius: 10px;
+  color: #252627;
+  font-size: 1.9rem;
+  transition: 1s;
+  font-family: "Alfa Slab One", cursive;
+`;
+
+const LogoStyle = styled.div`
+  color: #252627;
+  font-size: 2.5rem;
+  text-shadow: #ebebeb 1px 1px 0;
+  font-family: "Alfa Slab One", cursive;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  span:first-child {
+    color: #991c27;
+  }
+`;
+
+const Header = styled.div`
+  background-color: rgba(37, 38, 39, 0.3);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Member = styled.span`
+  color: black;
+`;
+const Error = styled.p`
+  color: black;
+`;

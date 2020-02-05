@@ -6,10 +6,15 @@ import styled from "styled-components";
 import JournalCard from "./JournalCard";
 
 const StyledLink = styled(Link)`
-
+  text-decoration: none;
+  width: 49%;
 `;
 const ListContainer = styled.div`
- 
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
 
 function JournalList(props) {
