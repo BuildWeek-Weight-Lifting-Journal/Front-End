@@ -11,6 +11,7 @@ import CreateJournal from "./components/CreateJournal"
 import Navigation from "./components/Navigation";
 import "./App.css";
 
+
 function App(props) {
   const [user, setUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);

@@ -83,30 +83,43 @@ const LoginForm = ({ errors, touched, setUser }) => {
     <Container>
       <Header>
         <LogoStyle>
-          <span>name</span>
-          <span>Name</span>
+          <span>GET</span>
+          <span>FIT</span>
         </LogoStyle>
       </Header>
       <StyledForm>
         <fieldset>
-          <UserNamePasswordLabel>Username</UserNamePasswordLabel>
+          {/* <UserNamePasswordLabel>Username</UserNamePasswordLabel> */}
           {touched.username && errors.username && (
             <Error className="error">{errors.username}</Error>
           )}
-          <StyledField
+          {/* <StyledField
             type="text"
             name="username"
             placeholder="TheGovernator47"
-          />
+          /> */}
+          <TextField id="outlined-basic" label="username" variant="outlined" type="text"
+            name="username"/>
         </fieldset>
         <fieldset>
-          <UserNamePasswordLabel>Password</UserNamePasswordLabel>
+          {/* <UserNamePasswordLabel>Password</UserNamePasswordLabel> */}
           {touched.password && errors.password && (
             <Error className="error">{errors.password}</Error>
           )}
-          <StyledField type="password" name="password" placeholder="******" />
+          {/* <StyledField type="password" name="password" placeholder="******" /> */}
+          <TextField id="outlined-basic" label="password" variant="outlined" type="text"
+            name="password" placeholder="******"/>
         </fieldset>
-        <ButtonStyle type="submit">Submit</ButtonStyle>
+        {/* <ButtonStyle type="submit">Submit</ButtonStyle> */}
+        <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            // className={classes.submit}
+          >
+            Sign In
+          </Button>
         <p>
           <Member>Not a member?</Member> <span> </span>
           <Link to="/register">Register</Link>
@@ -145,6 +158,8 @@ const Login = withFormik({
 export default Login;
 
 /*************Styles************************/
+/***these are the styles from Ricardo that I'm replacing with Material UI**** */
+
 const StyledForm = styled(Form)`
   justify-content: center;
   padding-left: 20px;
@@ -172,7 +187,7 @@ const StyledField = styled(Field)`
 const UserNamePasswordLabel = styled.label`
   color: #252627;
   font-size: 2rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Roboto";
   text-shadow: #ffffff 1px 1px 0;
   padding: 10px 0;
 `;
@@ -193,14 +208,14 @@ const ButtonStyle = styled.button`
   color: #252627;
   font-size: 1.9rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Roboto";
 `;
 
 const LogoStyle = styled.div`
   color: #252627;
   font-size: 2.5rem;
   text-shadow: #ebebeb 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Roboto";
   width: 100%;
   display: flex;
   justify-content: flex-start;
