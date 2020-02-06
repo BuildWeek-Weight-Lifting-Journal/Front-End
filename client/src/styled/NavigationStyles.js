@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Header = styled.div`
-  background-color: rgba(37, 38, 39, 0.3);
+  background-color: #0c93d3;
   width: 100%;
   text-align: left;
   display: flex;
@@ -72,3 +72,6 @@ export const Name = styled.div`
     color: #991c27;
   }
 `;
+
+/***********Changed Styles**********/
+// Header = Background-Color

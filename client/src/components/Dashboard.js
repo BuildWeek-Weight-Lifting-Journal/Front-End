@@ -101,7 +101,7 @@ const ButtonStyle = styled.button`
 
 const LoggedJournals = styled.div`
   color: #252627;
-  font-size: 2.4rem;
+  font-size: 2.4rem; 
   font-family: "Alfa Slab One", cursive;
   padding: 10px 0;
   text-shadow: #ffffff 1px 1px 0;
@@ -132,3 +132,9 @@ const Container = styled.div`
   border-radius: 5px;
   width: 100%;
 `;
+
+
+/***********Changed Styles**********/
+// ButtonStyle = Background-Color
+// Styled Region = Font-Size
+// Logged Journals = Font-Size
