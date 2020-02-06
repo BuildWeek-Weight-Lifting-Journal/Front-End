@@ -88,7 +88,7 @@ export default Dashboard;
 const ButtonStyle = styled.button`
   height: auto;
   padding: 20px 20px;
-  background: #efbf3b;
+  background: #0c93d3;
   margin-bottom: 5%;
   margin-left: 0%;
   width: 40%;
@@ -101,7 +101,7 @@ const ButtonStyle = styled.button`
 
 const LoggedJournals = styled.div`
   color: #252627;
-  font-size: 1.9rem;
+  font-size: 2.4rem;
   font-family: "Alfa Slab One", cursive;
   padding: 10px 0;
   text-shadow: #ffffff 1px 1px 0;
@@ -120,7 +120,7 @@ const JournalContainer = styled.span`
 const StyledRegion = styled.div`
   margin: 2%;
   color: #991c27;
-  font-size: 1rem;
+  font-size: 1.8rem;
   font-family: "Alfa Slab One", cursive;
   text-shadow: #ffffff 1px 1px 0;
 `;
