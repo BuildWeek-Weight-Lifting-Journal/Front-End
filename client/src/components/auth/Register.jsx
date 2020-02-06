@@ -11,7 +11,7 @@ const RegisterForm = ({ errors, touched }) => {
       <Header>
         <LogoStyle>
           <span>Watch</span>
-          <span>Yourself</span>
+          <span>name</span>
         </LogoStyle>
       </Header>
       <StyledForm>

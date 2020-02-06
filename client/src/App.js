@@ -26,12 +26,17 @@ function App(props) {
       <div className="App">
         {loggedIn && <Navigation user={user} setLoggedIn={setLoggedIn} />}
         <Route
-          path="/login"
+          exact path="/" 
           exact
           render={props => <Login {...props} setUser={setUser} />}
         />
         <Route
-          path="/"
+          path="/login" 
+          exact
+          render={props => <Login {...props} setUser={setUser} />}
+        />
+        <Route
+          path="/register"
           exact
           render={props => <Register {...props} setUser={setUser} />}
         />

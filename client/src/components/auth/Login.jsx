@@ -83,8 +83,8 @@ const LoginForm = ({ errors, touched, setUser }) => {
     <Container>
       <Header>
         <LogoStyle>
-          <span>Watch</span>
-          <span>Yourself</span>
+          <span>name</span>
+          <span>Name</span>
         </LogoStyle>
       </Header>
       <StyledForm>
