@@ -29,8 +29,6 @@ import { Form, Field, withFormik } from 'formik';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
