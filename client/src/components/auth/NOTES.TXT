@@ -1,0 +1,12 @@
+import { fontSize } from "@material-ui/system";
+
+remove all cursive fonts
+Alfa Slab One", cursive
+Replace with 
+font-family: "Ubuntu";
+font-weight: 700;
+
+replace colors
+This is the target color #0c93d3 it's a blue/ dodger blue
+replace #991c27 which looks like a dark brown
+and replace #efbf3b which is a gold color
