@@ -96,13 +96,15 @@ const ButtonStyle = styled.button`
   color: #252627;
   font-size: 1.1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  Font-weight: 700;
 `;
 
 const LoggedJournals = styled.div`
   color: #252627;
   font-size: 1.9rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   padding: 10px 0;
   text-shadow: #ffffff 1px 1px 0;
 `;
