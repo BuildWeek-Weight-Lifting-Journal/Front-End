@@ -31,7 +31,7 @@ const RegisterForm = ({ errors, touched }) => {
           {touched.firstName && errors.firstName && (
             <Error className="error">{errors.firstName}</Error>
           )}
-          <StyledField type="text" name="firstName" placeholder="Arnold" />
+          <StyledField type="text" name="firstName"  />
         </fieldset>
         <fieldset>
           <UserNamePasswordLabel>Last Name</UserNamePasswordLabel>
@@ -52,7 +52,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="email"
-            placeholder="@getfit.com"
+           
           />
         </fieldset>
         <fieldset>
