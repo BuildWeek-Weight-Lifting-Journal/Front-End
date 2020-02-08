@@ -97,12 +97,12 @@ const ButtonStyle = styled.button`
   font-size: 1.1rem;
   transition: 1s;
   font-family: "Ubuntu";
-  font-weight: 700;
+  Font-weight: 700;
 `;
 
 const LoggedJournals = styled.div`
   color: #252627;
-  font-size: 2.4rem; 
+  font-size: 1.9rem;
   font-family: "Ubuntu";
   font-weight: 700;
   padding: 10px 0;

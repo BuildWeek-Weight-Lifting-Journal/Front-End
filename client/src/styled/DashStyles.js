@@ -15,6 +15,7 @@ export const Logo = styled.div`
   font-size: 2.5rem;
   text-shadow: #ffffff 1px 1px 0;
   font-family: "Ubuntu";
+  font-weight: 700;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -26,7 +27,7 @@ export const Logo = styled.div`
 export const Name = styled.span`
   color: #252627;
   font-size: 3rem;
-  font-family: "Lora";
+  font-family: "Ubuntu";
   font-weight: 700;
   text-shadow: #ebebeb 1px 1px 0;
 `;
@@ -34,5 +35,6 @@ export const UserName = styled.div`
   color: #252627;
   font-size: 2rem;
   font-family: "Ubuntu";
+  font-weight: 700;
   padding: 10px 0;
 `;

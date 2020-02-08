@@ -23,7 +23,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="username"
-            placeholder="TheGovernator47"
+          
           />
         </fieldset>
         <fieldset>
@@ -31,7 +31,7 @@ const RegisterForm = ({ errors, touched }) => {
           {touched.firstName && errors.firstName && (
             <Error className="error">{errors.firstName}</Error>
           )}
-          <StyledField type="text" name="firstName" placeholder="Arnold" />
+          <StyledField type="text" name="firstName"  />
         </fieldset>
         <fieldset>
           <UserNamePasswordLabel>Last Name</UserNamePasswordLabel>
@@ -41,7 +41,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="lastName"
-            placeholder="Schwarzenegger"
+       
           />
         </fieldset>
         <fieldset>
@@ -52,7 +52,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="email"
-            placeholder="arnold@strong.com"
+           
           />
         </fieldset>
         <fieldset>
@@ -60,7 +60,7 @@ const RegisterForm = ({ errors, touched }) => {
           {touched.password && errors.password && (
             <Error className="error">{errors.password}</Error>
           )}
-          <StyledField type="password" name="password" placeholder="******" />
+          <StyledField type="password" name="password"  />
         </fieldset>
         <ButtonStyle type="submit">Submit</ButtonStyle>
         <p>
@@ -130,7 +130,8 @@ const StyledField = styled(Field)`
 const UserNamePasswordLabel = styled.label`
   color: #252627;
   font-size: 2rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   padding: 10px 0;
   text-shadow: #ffffff 1px 1px 0;
 `;
@@ -145,7 +146,7 @@ const Container = styled.div`
 const ButtonStyle = styled.button`
   height: auto;
   padding: 20px 80px;
-  background: #efbf3b;
+  background: #0c93d3;
   margin-top: 20px;
   margin-left: 0%;
   width: 100%;
@@ -153,20 +154,22 @@ const ButtonStyle = styled.button`
   color: #252627;
   font-size: 1.9rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
 `;
 
 const LogoStyle = styled.div`
   color: #252627;
   font-size: 2.5rem;
   text-shadow: #ebebeb 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
   span:first-child {
-    color: #991c27;
+    color: #0c93d3;
   }
 `;
 
