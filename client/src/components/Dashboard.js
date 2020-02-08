@@ -96,20 +96,23 @@ const ButtonStyle = styled.button`
   color: #252627;
   font-size: 1.1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
 `;
 
 const LoggedJournals = styled.div`
   color: #252627;
   font-size: 2.4rem; 
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   padding: 10px 0;
   text-shadow: #ffffff 1px 1px 0;
 `;
 const JournalsLogged = styled.div`
   color: #252627;
   font-size: 1rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
   padding: 10px 0;
 `;
@@ -121,7 +124,8 @@ const StyledRegion = styled.div`
   margin: 2%;
   color: #991c27;
   font-size: 1.8rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
 `;
 
