@@ -35,7 +35,8 @@ const RegionStyled = styled.div`
   color: #252627;
   font-size: 2rem;
   text-shadow: #ffffff 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   width: 100%;
 
   padding-left: 20px;
@@ -51,7 +52,7 @@ const StyledData = styled.div`
   text-align: center;
 `;
 const Exercise = styled.div`
-  color: #252627;
+  color: #991c27;
   width: 75%;
   font-size: 1rem;
   font-family: "Alfa Slab One", cursive;
@@ -60,6 +61,7 @@ const Exercise = styled.div`
   margin: 20px;
   background-color: rgba(37, 38, 39, 0.3);
   box-shadow: 2px 2px 5px;
+  border-radius: 10px;
 `;
 
 const Container = styled.div`
