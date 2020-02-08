@@ -92,7 +92,7 @@ export default Journal;
 const ButtonStyle = styled.button`
   height: auto;
   padding: 10px 10px;
-  background: #efbf3b;
+  background: #0c93d3;
   margin-bottom: 5%;
   margin-left: 0%;
   margin-top: 2%;

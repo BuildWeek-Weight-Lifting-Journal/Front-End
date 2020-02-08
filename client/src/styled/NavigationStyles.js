@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Header = styled.div`
-  background-color: #0c93d3;
+  background-color: rgba(37, 38, 39, 0.3);
   width: 100%;
   text-align: left;
   display: flex;
@@ -14,9 +14,10 @@ export const Logo = styled.div`
   color: #252627;
   font-size: 2.5rem;
   text-shadow: #ebebeb 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   span:first-child {
-    color: #991c27;
+    color: #0c93d3;
   }
 `;
 
@@ -46,7 +47,7 @@ export const Metadata = styled.div`
 const ButtonStyles = `
   border-radius: 4px;
   padding: 10px 20px;
-  background-color: #ccc;
+  background-color: #0c93d3;
   font-size: 16px;
   text-decoration: none;
   color: #000;
@@ -67,11 +68,13 @@ export const Name = styled.div`
   color: #252627;
   font-size: 1rem;
   text-shadow: #ebebeb 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   span:first-child {
-    color: #991c27;
+    color: #0c93d3;
   }
 `;
 
 /***********Changed Styles**********/
 // Header = Background-Color
+// Logo = font family and font weight
