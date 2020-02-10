@@ -23,7 +23,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="username"
-            placeholder="TheGovernator47"
+           
           />
         </fieldset>
         <fieldset>
@@ -31,7 +31,7 @@ const RegisterForm = ({ errors, touched }) => {
           {touched.firstName && errors.firstName && (
             <Error className="error">{errors.firstName}</Error>
           )}
-          <StyledField type="text" name="firstName" placeholder="Arnold" />
+          <StyledField type="text" name="firstName" />
         </fieldset>
         <fieldset>
           <UserNamePasswordLabel>Last Name</UserNamePasswordLabel>
@@ -41,7 +41,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="lastName"
-            placeholder="Schwarzenegger"
+            
           />
         </fieldset>
         <fieldset>
@@ -52,7 +52,7 @@ const RegisterForm = ({ errors, touched }) => {
           <StyledField
             type="text"
             name="email"
-            placeholder="arnold@strong.com"
+            
           />
         </fieldset>
         <fieldset>
@@ -60,7 +60,7 @@ const RegisterForm = ({ errors, touched }) => {
           {touched.password && errors.password && (
             <Error className="error">{errors.password}</Error>
           )}
-          <StyledField type="password" name="password" placeholder="******" />
+          <StyledField type="password" name="password"  />
         </fieldset>
         <ButtonStyle type="submit">Submit</ButtonStyle>
         <p>
