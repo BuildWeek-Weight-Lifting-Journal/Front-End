@@ -92,7 +92,7 @@ export default Journal;
 const ButtonStyle = styled.button`
   height: auto;
   padding: 10px 10px;
-  background: #efbf3b;
+  background: #0c93d3;
   margin-bottom: 5%;
   margin-left: 0%;
   margin-top: 2%;
@@ -101,18 +101,19 @@ const ButtonStyle = styled.button`
   color: #252627;
   font-size: 1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
-`;
+  font-family: "Ubuntu";
+  font-weight: 700;`;
 
 const ButtonStyleSmall = styled.button`
   height: auto;
-  background: #991c27;
+  background: #0c93d3;
   border-radius: 10px;
   color: #f3f3f3;
   font-size: 1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
-`;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  `;
 
 const ExerciseContainer = styled.span`
   display: flex;
@@ -126,7 +127,8 @@ const StyledRegion = styled.div`
   
   color: #252627
   font-size: 1rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
   margin:10%;
   
@@ -135,7 +137,8 @@ const StyledRegion = styled.div`
 const ExerciseStyled = styled.div`
   color: #252627
   font-size: 3rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
   margin-left:2%;
 `;

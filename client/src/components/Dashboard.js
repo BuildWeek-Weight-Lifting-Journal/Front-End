@@ -111,7 +111,8 @@ const LoggedJournals = styled.div`
 const JournalsLogged = styled.div`
   color: #252627;
   font-size: 1rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
   padding: 10px 0;
 `;
@@ -121,9 +122,10 @@ const JournalContainer = styled.span`
 `;
 const StyledRegion = styled.div`
   margin: 2%;
-  color: #991c27;
-  font-size: 1.8rem;
-  font-family: "Alfa Slab One", cursive;
+  color: #0c93d3;
+  font-size: 1rem;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
 `;
 

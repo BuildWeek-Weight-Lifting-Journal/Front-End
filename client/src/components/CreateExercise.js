@@ -111,13 +111,14 @@ const StyledField = styled(Field)`
 `;
 
 const StyledForm = styled(Form)`
-  font-family: "Alfa Slab One", cursive;
+font-family: "Ubuntu";
+font-weight: 700;
 `;
 
 const ButtonStyle = styled.button`
   height: auto;
   padding: 20px 20px;
-  background: #991c27;
+  background: #0c93d3;
   margin-bottom: 5%;
   margin-left: 0%;
   width: 40%;
@@ -125,8 +126,9 @@ const ButtonStyle = styled.button`
   color: #f3f3f3;
   font-size: 1.1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
-`;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  `;
 
 /*=============== EXPORT ===============*/
 export default FormikCreateExercise;

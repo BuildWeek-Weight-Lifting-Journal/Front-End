@@ -10,3 +10,6 @@ replace colors
 This is the target color #0c93d3 it's a blue/ dodger blue
 replace #991c27 which looks like a dark brown
 and replace #efbf3b which is a gold color
+
+All GREY and dark black/grey colors should stay where they are. 
+No changes there.
