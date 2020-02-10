@@ -35,26 +35,29 @@ const RegionStyled = styled.div`
   color: #252627;
   font-size: 2rem;
   text-shadow: #ffffff 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   width: 100%;
 
   padding-left: 20px;
   span:first-child {
-    color: #991c27;
+    color: #0c93d3;
   }
 `;
 const StyledData = styled.div`
   text-shadow: #ffffff 1px 1px 0;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   font-size: 1rem;
-  color: #991c27;
+  color: #0c93d3;
   text-align: center;
 `;
 const Exercise = styled.div`
   color: #252627;
   width: 75%;
   font-size: 1rem;
-  font-family: "Alfa Slab One", cursive;
+  font-family: "Ubuntu";
+  font-weight: 700;
   text-shadow: #ffffff 1px 1px 0;
   padding: 10px 0;
   margin: 20px;
@@ -72,12 +75,13 @@ const Container = styled.div`
 
 const ButtonStyle = styled.button`
   height: auto;
-  background: #991c27;
+  background: #0c93d3;
   margin-bottom: 5%;
   margin-left: 0%;
   border-radius: 10px;
   color: #f3f3f3;
   font-size: 1.1rem;
   transition: 1s;
-  font-family: "Alfa Slab One", cursive;
-`;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  `;
