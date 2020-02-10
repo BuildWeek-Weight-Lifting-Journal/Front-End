@@ -102,7 +102,7 @@ const LoginForm = ({ errors, touched, setUser }) => {
           {touched.password && errors.password && (
             <Error className="error">{errors.password}</Error>
           )}
-          <StyledField type="password" name="password" />
+          <StyledField type="password" name="password"  />
         </fieldset>
         <ButtonStyle type="submit">Submit</ButtonStyle>
         <p>
